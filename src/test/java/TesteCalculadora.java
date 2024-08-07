@@ -21,8 +21,8 @@ public class TesteCalculadora {
     public void testeSomarDoisNumeros(){
         //Configura
         double num1 = 7;
-        double num2 = 5;
-        double resultadoEsperado = 12;
+        double num2 = 3;
+        double resultadoEsperado = 10;
 
         //Executa
         double resultadoAtual = Calculadora.somarDoisNumeros(num1, num2);
