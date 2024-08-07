@@ -66,8 +66,8 @@ public class TesteCalculadora {
     @Test
     public void testeSubtrairDoisNumeros(){
         double num1 = 9;
-        double num2 = 3;
-        double resultadoEsperado = 6;
+        double num2 = 4;
+        double resultadoEsperado = 5;
 
         double resultadoAtual = Calculadora.subtrairDoisNumeros(num1, num2);
 
