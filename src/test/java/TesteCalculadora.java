@@ -96,8 +96,8 @@ public class TesteCalculadora {
     @Test
     public void testeMultiplicarDoisNumeros(){
         double num1 = 2;
-        double num2 = 4;
-        double resultadoEsperado = 8;
+        double num2 = 7;
+        double resultadoEsperado = 14;
 
         double resultadoAtual = Calculadora.multiplicarDoisNumeros(num1, num2);
 
