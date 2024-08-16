@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is; //comparador se é igual
 
 //Classe
-public class testeUser {   //inicio da classe
+public class TesteUser {   //inicio da classe co letra maiuscula
     //atributos
 
     //funções e metodos
