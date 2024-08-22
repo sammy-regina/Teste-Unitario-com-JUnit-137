@@ -15,6 +15,8 @@ import static org.hamcrest.Matchers.is; //comparador se é igual
 //Classe
 public class TesteUser {   //inicio da classe co letra maiuscula
     //atributos
+    String ct = "application/json";
+    String uri = "https://petstore.swagger.io/v2/user/";
 
     //funções e metodos
 
@@ -33,18 +35,39 @@ public class TesteUser {   //inicio da classe co letra maiuscula
 
         //realizar teste
         given()                                         //Dado que
-                .contentType("application/json")     //o tipo de conteudo
+                .contentType(ct)                        //o tipo de conteudo
                 .log().all()                            //mostre tudo
                 .body(jsonBody)                         //corpo da requisição
-                .when()                                         //Quando
-                .post("https://petstore.swagger.io/v2/user") //endpoint
-                .then()                                          //então
-                .log().all()                             //mostre tudo na volta
+                .when()                                 //Quando
+                .post(uri)                              //endpoint
+                .then()                                 //então
+                .log().all()                            //mostre tudo na volta
                 .statusCode(200)                      //comunicação ida e volta ok
                 .body("code", is(200))          //tag code é 200
                 .body("type", is("unknown"))    //tag type é unknown
                 .body("message", is(userId))          //message é variável userId
         ;
     }//fim post
-    
+
+    public void testarConsultarUser(){
+        String username = "Liza"; //variavel username (pode ser alterado o nome)
+
+        //resultado esperado
+        long userId = 1373879393; //codigo do usuário
+        String email = "liza@teste.com";
+        long password = 123456;
+
+        given()
+                .contentType(ct) //ct = a variavel que foi declarada la em cima em atributos
+                .log().all()// mostrar tudo
+        .when() //quando
+                .get(uri + username) //variavel endpoint do usuario + variavel username
+        .then()
+                .log().all()
+                .statusCode(200)
+                .body("id", is (userId))
+                .body("email", is (email))
+                .body("password", is (password))
+        ;
+    }
 }// fim da classe
