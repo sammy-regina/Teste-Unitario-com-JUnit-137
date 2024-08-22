@@ -46,7 +46,5 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .body("message", is(userId))          //message é variável userId
         ;
     }//fim post
-
-
-
+    
 }// fim da classe
