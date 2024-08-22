@@ -49,13 +49,14 @@ public class TesteUser {   //inicio da classe co letra maiuscula
         ;
     }//fim post
 
+    @Test
     public void testarConsultarUser(){
         String username = "Liza"; //variavel username (pode ser alterado o nome)
 
         //resultado esperado
-        long userId = 1373879393; //codigo do usuário
+        int userId = 1373879393; //codigo do usuário
         String email = "liza@teste.com";
-        long password = 123456;
+        String password = "123456";
 
         given()
                 .contentType(ct) //ct = a variavel que foi declarada la em cima em atributos
