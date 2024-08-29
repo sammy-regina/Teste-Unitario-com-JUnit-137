@@ -70,5 +70,6 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .body("email", is (email))
                 .body("password", is (password))
         ;
-    }
+    }//fim get
+
 }// fim da classe
