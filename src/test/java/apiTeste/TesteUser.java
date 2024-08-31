@@ -15,8 +15,8 @@ import static org.hamcrest.Matchers.is; //comparador se é igual
 //Classe
 public class TesteUser {   //inicio da classe co letra maiuscula
     //atributos
-    String ct = "application/json";
-    String uri = "https://petstore.swagger.io/v2/user/";
+    static String ct = "application/json";
+    static String uri = "https://petstore.swagger.io/v2/user/";
 
     //funções e metodos
 
@@ -28,7 +28,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
     //funções de teste
 
     @Test
-    public void testarIncluirUser() throws IOException {
+    public static void testarIncluirUser() throws IOException {
         //carregar dados do json
         String jsonBody = lerArquivoJson("src/test/resources/json/user1.json");
         String userId = "1373879393";
@@ -71,6 +71,13 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .body("password", is (password))
         ;
     }//fim get
-    
+    @Test
+    public static void testarAlterarUser() throws IOException {
+        String jsonBody = lerArquivoJson("src/test/resources/json/user2.json");
+        String userId = "1373879393";
 
+        given()
+                .contentType(ct)
+                .
+    }
 }// fim da classe
