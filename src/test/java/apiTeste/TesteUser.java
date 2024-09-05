@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
+import static com.sun.tools.javac.code.TypeAnnotationPosition.unknown;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is; //comparador se é igual
 
@@ -28,7 +28,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
     //funções de teste
 
     @Test
-    public static void testarIncluirUser() throws IOException {
+    public void testarIncluirUser() throws IOException {
         //carregar dados do json
         String jsonBody = lerArquivoJson("src/test/resources/json/user1.json");
         String userId = "1373879393";
@@ -72,12 +72,25 @@ public class TesteUser {   //inicio da classe co letra maiuscula
         ;
     }//fim get
     @Test
-    public static void testarAlterarUser() throws IOException {
+    public void testarAlterarUser() throws IOException {
         String jsonBody = lerArquivoJson("src/test/resources/json/user2.json");
         String userId = "1373879393";
+        String username = "Liza";
 
         given()
                 .contentType(ct)
-                .
+                .log().all()
+                .body(jsonBody)
+        .when()
+                .put(uri + username)
+        .then()
+                .log().all()
+                .statusCode(200)
+                .body("code", is(200))
+                .body("type", is(unknown))
+                .body("message", is(userId))
+        ;
+    //fim put
     }
+
 }// fim da classe
