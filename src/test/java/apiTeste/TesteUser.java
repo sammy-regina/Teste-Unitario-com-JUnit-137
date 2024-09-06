@@ -87,7 +87,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .log().all()
                 .statusCode(200)
                 .body("code", is(200))
-                .body("type", is(unknown))
+                .body("type", is("unknown"))
                 .body("message", is(userId))
         ;
     //fim put

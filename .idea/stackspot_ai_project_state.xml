@@ -18,7 +18,8 @@
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/ControleGastos.java" value="114469" />
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Despesa.java" value="115599" />
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Despesas.java" value="25363" />
-                  <entry key="$PROJECT_DIR$/src/test/java/apiTeste/TesteUser.java" value="129601" />
+                  <entry key="$PROJECT_DIR$/src/test/java/apiTeste/TesteUser.java" value="130336" />
+                  <entry key="$PROJECT_DIR$/src/test/resources/json/user1.json" value="0" />
                   <entry key="$PROJECT_DIR$/src/test/resources/json/user2.json" value="0" />
                   <entry key="$USER_HOME$/.jdks/corretto-17.0.12/lib/src.zip!/java.base/java/lang/Object.java" value="0" />
                 </map>
