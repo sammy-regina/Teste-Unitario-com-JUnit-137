@@ -1,6 +1,7 @@
-package br.com.iterasys;
+package controle;
 
 // Importações necessárias
+
 import java.util.ArrayList;//ArrayList é uma das principais maneiras que manipulamos listas, dicionários, filas, pilhas ou qualquer outro tipo de coleção
 import java.util.Scanner;//para simplificar a leitura de diversas formas de entrada do usuário
 

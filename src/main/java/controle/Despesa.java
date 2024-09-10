@@ -1,4 +1,4 @@
-package br.com.iterasys;
+package controle;
 
 // Classe que representa uma despesa
 public class Despesa {
