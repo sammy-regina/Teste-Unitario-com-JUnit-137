@@ -90,7 +90,25 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .body("type", is("unknown"))
                 .body("message", is(userId))
         ;
-    //fim put
-    }
+
+    }//fim put
+
+   @Test //anotação
+    public void testarExcluiirUser(){//inicio delete
+        String username = "Liza";
+
+        given()
+                .contentType(ct)
+                .log().all()
+        .when()
+                .delete(uri + username)
+        .then()
+                .statusCode(200)
+                .body("code", is(200))
+                .body("type",is("unknown"))
+                .body("message", is(username))
+        ;
+
+    }//fim delete
 
 }// fim da classe

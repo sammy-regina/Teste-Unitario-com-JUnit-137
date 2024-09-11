@@ -6,19 +6,22 @@
         <entry key="sandra.rja@gmail.com">
           <value>
             <ProjectStateData>
-              <option name="conversationId" value="01J6ZV62AEJ4KBY60V9Y6TTSG3" />
+              <option name="conversationId" value="01J7F05XJRSYENZBXR81H60SHT" />
               <option name="indexedFiles">
                 <map>
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Calculadora.java" value="0" />
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Main.java" value="0" />
                   <entry key="$PROJECT_DIR$/src/test/java/TesteCalculadora.java" value="14791" />
-                  <entry key="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2023.2/httpFileSystem/catalog.json" value="50488" />
+                  <entry key="$USER_HOME$/AppData/Local/JetBrains/IdeaIC2023.2/httpFileSystem/catalog.json" value="11200" />
                   <entry />
                   <entry key="$PROJECT_DIR$/pom.xml" value="124560" />
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/ControleGastos.java" value="114469" />
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Despesa.java" value="115599" />
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Despesas.java" value="25363" />
-                  <entry key="$PROJECT_DIR$/src/test/java/apiTeste/TesteUser.java" value="130916" />
+                  <entry key="$PROJECT_DIR$/src/main/java/praticando/JogoAdivinhacao.java" value="11767" />
+                  <entry key="$PROJECT_DIR$/src/main/java/praticando/jogoAdivinhacao.java" value="177" />
+                  <entry key="$PROJECT_DIR$/src/main/java/praticando/jogoAdivinhação.java" value="66" />
+                  <entry key="$PROJECT_DIR$/src/test/java/apiTeste/TesteUser.java" value="23480" />
                   <entry key="$PROJECT_DIR$/src/test/resources/json/user1.json" value="0" />
                   <entry key="$PROJECT_DIR$/src/test/resources/json/user2.json" value="0" />
                   <entry key="$USER_HOME$/.jdks/corretto-17.0.12/lib/src.zip!/java.base/java/lang/Object.java" value="0" />
