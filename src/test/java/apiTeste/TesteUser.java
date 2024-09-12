@@ -5,6 +5,7 @@ package apiTeste;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -43,10 +44,10 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .post(uri)                              //endpoint
                 .then()                                 //então
                 .log().all()                            //mostre tudo na volta
-                .statusCode(200)                      //comunicação ida e volta ok
-                .body("code", is(200))          //tag code é 200
-                .body("type", is("unknown"))    //tag type é unknown
-                .body("message", is(userId))          //message é variável userId
+                .statusCode(200)                     //comunicação ida e volta ok
+                .body("code", is(200))         //tag code é 200
+                .body("type", is("unknown"))   //tag type é unknown
+                .body("message", is(userId))         //message é variável userId
         ;
     }//fim post
 
@@ -136,4 +137,25 @@ public class TesteUser {   //inicio da classe co letra maiuscula
         System.out.println("Conteúdo do Token: " + token);
     }//fim login
 
+    @ParameterizedTest //inicio csv
+    public void testarIncluirUserCsv(){
+        String jsonBody = lerArquivoJson("src/test/resources/json/user1.json");
+        String userId = "1373879393";
+
+        //realizar teste
+        given()                                         //Dado que
+                .contentType(ct)                        //o tipo de conteudo
+                .log().all()                            //mostre tudo
+                .body(jsonBody)                         //corpo da requisição
+        .when()                                         //Quando
+                .post(uri)                              //endpoint
+        .then()                                         //então
+                .log().all()                            //mostre tudo na volta
+                .statusCode(200)                     //comunicação ida e volta ok
+                .body("code", is(200))         //tag code é 200
+                .body("type", is("unknown"))   //tag type é unknown
+                .body("message", is(userId))         //message é variável userId
+        ;
+
+    }//fim csv
 }// fim da classe
