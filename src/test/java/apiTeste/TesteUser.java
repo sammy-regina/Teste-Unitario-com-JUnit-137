@@ -3,6 +3,7 @@ package apiTeste;
 
 //bibliotecas
 
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import static com.sun.tools.javac.code.TypeAnnotationPosition.unknown;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.is; //comparador se é igual
+import static org.hamcrest.Matchers.*;
 
 //Classe
 public class TesteUser {   //inicio da classe co letra maiuscula
@@ -110,5 +111,27 @@ public class TesteUser {   //inicio da classe co letra maiuscula
         ;
 
     }//fim delete
+
+    @Test
+    public void testarLogin(){
+        String username = "Liza";
+        String password = "987654";
+
+        Response response = (Response) given()
+            .contentType(ct)
+            .log().all()
+        .when()
+            .get(uri + "login?username=" + username + "&password= " + password)
+        .then()
+            .statusCode(200)
+            .body("code", is(200))
+            .body("type", is("unknon"))
+            .body("message", containsString("logged in user session:"))
+            .body("message", hasSize(34)) //valida pelo numero de caracter
+        .extract()
+        ;
+        //extração da resposta
+        
+    }
 
 }// fim da classe

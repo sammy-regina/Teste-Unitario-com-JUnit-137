@@ -6,7 +6,7 @@
         <entry key="sandra.rja@gmail.com">
           <value>
             <ProjectStateData>
-              <option name="conversationId" value="01J7F05XJRSYENZBXR81H60SHT" />
+              <option name="conversationId" value="01J7HJFQB2YMS0N7H0Q8X3JAB9" />
               <option name="indexedFiles">
                 <map>
                   <entry key="$PROJECT_DIR$/src/main/java/br/com/iterasys/Calculadora.java" value="0" />
@@ -21,7 +21,7 @@
                   <entry key="$PROJECT_DIR$/src/main/java/praticando/JogoAdivinhacao.java" value="11767" />
                   <entry key="$PROJECT_DIR$/src/main/java/praticando/jogoAdivinhacao.java" value="177" />
                   <entry key="$PROJECT_DIR$/src/main/java/praticando/jogoAdivinhação.java" value="66" />
-                  <entry key="$PROJECT_DIR$/src/test/java/apiTeste/TesteUser.java" value="23480" />
+                  <entry key="$PROJECT_DIR$/src/test/java/apiTeste/TesteUser.java" value="2629" />
                   <entry key="$PROJECT_DIR$/src/test/resources/json/user1.json" value="0" />
                   <entry key="$PROJECT_DIR$/src/test/resources/json/user2.json" value="0" />
                   <entry key="$USER_HOME$/.jdks/corretto-17.0.12/lib/src.zip!/java.base/java/lang/Object.java" value="0" />
@@ -29,6 +29,11 @@
               </option>
               <option name="projectId" value="01J47X1NR5SJQFE13BP29RNXVX" />
             </ProjectStateData>
+          </value>
+        </entry>
+        <entry key="unauthenticated">
+          <value>
+            <ProjectStateData />
           </value>
         </entry>
       </map>
