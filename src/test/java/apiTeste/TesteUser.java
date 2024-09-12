@@ -113,25 +113,27 @@ public class TesteUser {   //inicio da classe co letra maiuscula
     }//fim delete
 
     @Test
-    public void testarLogin(){
+    public void testarLogin(){ //consulta e extrai o token
         String username = "Liza";
         String password = "987654";
 
-        Response response = (Response) given()
+        Response response = (Response) given()//cast de detalhamento para o given guardar a resposta
             .contentType(ct)
             .log().all()
         .when()
             .get(uri + "login?username=" + username + "&password= " + password)
         .then()
+            .log().all()
             .statusCode(200)
             .body("code", is(200))
-            .body("type", is("unknon"))
+            .body("type", is("unknown"))
             .body("message", containsString("logged in user session:"))
-            .body("message", hasSize(34)) //valida pelo numero de caracter
+            .body("message", hasLength(36)) //valida pelo numero de caracter (colections)
         .extract()
         ;
         //extração da resposta
-
-    }
+        String token = response.jsonPath().getString("message").substring(23);//pega um pedaço do texto a partir da posição 23
+        System.out.println("Conteúdo do Token: " + token);
+    }//fim login
 
 }// fim da classe
