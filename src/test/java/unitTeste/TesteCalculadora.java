@@ -1,12 +1,10 @@
-//Bibliotecas
+package unitTeste;//Bibliotecas
 
 import br.com.iterasys.Calculadora;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import javax.management.ConstructorParameters;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -76,11 +74,11 @@ public class TesteCalculadora {
     // Teste de unidade "Data Driven" - direcionado por dados
     @ParameterizedTest
     @CsvSource (value = {
-            " 07| 05 | 2.00",
-            "56 | 44 | 12.00",
-            "10 | 00 | 10.0",
-            "15 | 05 | 10.0",
-            "08 | 07 | 1.00"
+            " 07| 05 | 02",
+            "56 | 44 | 12",
+            "10 | 00 | 10",
+            "15 | 05 | 10",
+            "08 | 07 | 01"
     }, delimiter = '|') //para avisar que usou a vírgula como separador
     public void testeSubtrairDoisNumerosLendoLista(String num1, String num2, String resultadoEsperado){
         //Configura
