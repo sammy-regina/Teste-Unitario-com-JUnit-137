@@ -12,7 +12,7 @@ public class Soma {
         }
 
         // Realiza a soma
-        double soma = num1 + num2;
+         double soma = num1 + num2;
 
         // Exibe o resultado
         System.out.println("A soma dos números é: " + soma);
