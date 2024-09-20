@@ -139,7 +139,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
     }//fim login
 
     @ParameterizedTest //inicio csv
-    @CsvFileSource(resources = "csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
+    @CsvFileSource(resources = "/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
     public void testarIncluirUserCsv(
             String id,
             String username,
@@ -151,21 +151,21 @@ public class TesteUser {   //inicio da classe co letra maiuscula
             String userStatus){
 
         StringBuilder jsonBody = new StringBuilder("{");
-            jsonBody.append("'id':  "+ id + ",");
-            jsonBody.append("'username':  " + username + ",");
-            jsonBody.append("'firstName':  " + firstName + ",");
-            jsonBody.append("'lastName':  " + lastName + ",");
-            jsonBody.append("'email':  " + email + ",");
-            jsonBody.append("'password':  " + password + ",");
-            jsonBody.append("'phone':  " + phone + ",");
-            jsonBody.append("'userStatus':  " + userStatus);
+            jsonBody.append(" 'id': "+ id + ",");
+            jsonBody.append(" 'username': " + username + ",");
+            jsonBody.append(" 'firstName': " + firstName + ",");
+            jsonBody.append(" 'lastName': " + lastName + ",");
+            jsonBody.append(" 'email': " + email + ",");
+            jsonBody.append(" 'password': " + password + ",");
+            jsonBody.append(" 'phone': " + phone + ",");
+            jsonBody.append(" 'userStatus': " + userStatus);
             jsonBody.append("}");
 
         //realizar teste
         given()                                         //Dado que
                 .contentType(ct)                        //o tipo de conteudo
                 .log().all()                            //mostre tudo
-                .body(jsonBody)                         //corpo da requisição
+                .body(jsonBody.toString())              //corpo da requisição
         .when()                                         //Quando
                 .post(uri)                              //endpoint
         .then()                                         //então
@@ -173,7 +173,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .statusCode(200)                     //comunicação ida e volta ok
                 .body("code", is(200))         //tag code é 200
                 .body("type", is("unknown"))   //tag type é unknown
-                .body("message", is(id))         //message é variável userId
+                .body("message", is( id ))         //message é variável userId
         ;
 
     }//fim csv
