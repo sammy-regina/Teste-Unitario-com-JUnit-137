@@ -1,0 +1,11 @@
+id,username,firstName,lastName,email,password,phone,userStatus
+1373879393,Liza,Luiza,Simpson,liza@teste.com,123456,11999998888,0
+1373879394,john_doe,John,Doe,john.doe@example.com,pass123,11987654321,1
+1373879395,jane_smith,Jane,Smith,jane.smith@example.com,abc123,11912345678,1
+1373879396,mike_jones,Mike,Jones,mike.jones@example.com,qwerty,11923456789,0
+1373879397,sarah_connor,Sarah,Connor,sarah.connor@example.com,skynet,11934567890,1
+1373879398,bruce_wayne,Bruce,Wayne,bruce.wayne@example.com,batman,11945678901,0
+1373879399,clark_kent,Clark,Kent,clark.kent@example.com,superman,11956789012,1
+1373879400,diana_prince,Diana,Prince,diana.prince@example.com,wonderwoman,11967890123,1
+1373879401,tony_stark,Tony,Stark,tony.stark@example.com,ironman,11978901234,0
+1373879402,steve_rogers,Steve,Rogers,steve.rogers@example.com,captain,11989012345,1
