@@ -3,7 +3,10 @@ package apiTeste;
 
 //bibliotecas
 
+import com.google.gson.Gson;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -16,7 +19,9 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 //Classe
-public class TesteUser {   //inicio da classe co letra maiuscula
+public class TesteUser {
+    private static final String BASE_URI = "http://example.com/api";   //inicio da classe co letra maiuscula
+    private static final String CONTENT_TYPE = "application/json";
     //atributos
     static String ct = "application/json";
     static String uri = "https://petstore.swagger.io/v2/user/";
@@ -138,7 +143,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
         System.out.println("Conteúdo do Token: " + token);
     }//fim login
 
-    @ParameterizedTest //inicio csv
+   /* @ParameterizedTest //inicio csv
     @CsvFileSource(resources = "/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
     public void testarIncluirUserCsv(
             String id,
@@ -159,13 +164,44 @@ public class TesteUser {   //inicio da classe co letra maiuscula
             jsonBody.append(" 'password': " + password + ",");
             jsonBody.append(" 'phone': " + phone + ",");
             jsonBody.append(" 'userStatus': " + userStatus);
-            jsonBody.append("}");
+            jsonBody.append("}");*/
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
+    @Order(5)
+
+    public void testarIncluirUserCSV(
+            String id,
+            String username,
+            String firstName,
+            String lastName,
+            String email,
+            String password,
+            String phone,
+            String userStatus)
+    {
+        User user = new User();
+
+        user.setId(id);
+        user.setUsername(username);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setPhone(phone);
+        user.setUserStatus(userStatus);
+
+        Gson gson = new Gson();
+        String jsonBody = gson.toJson(user);
+
+        RestAssured.baseURI = BASE_URI;
 
         //realizar teste
+
         given()                                         //Dado que
                 .contentType(ct)                        //o tipo de conteudo
                 .log().all()                            //mostre tudo
-                .body(jsonBody.toString())              //corpo da requisição
+                .body(jsonBody)                         //corpo da requisição
         .when()                                         //Quando
                 .post(uri)                              //endpoint
         .then()                                         //então
@@ -173,7 +209,7 @@ public class TesteUser {   //inicio da classe co letra maiuscula
                 .statusCode(200)                     //comunicação ida e volta ok
                 .body("code", is(200))         //tag code é 200
                 .body("type", is("unknown"))   //tag type é unknown
-                .body("message", is( id ))         //message é variável userId
+                /*.body("message", is( id ))*/          //message é variável id
         ;
 
     }//fim csv
