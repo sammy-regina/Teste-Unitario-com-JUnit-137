@@ -46,9 +46,9 @@ public class TesteUser {
                 .contentType(ct)                        //o tipo de conteudo
                 .log().all()                            //mostre tudo
                 .body(jsonBody)                         //corpo da requisição
-                .when()                                 //Quando
+        .when()                                 //Quando
                 .post(uri)                              //endpoint
-                .then()                                 //então
+        .then()                                 //então
                 .log().all()                            //mostre tudo na volta
                 .statusCode(200)                     //comunicação ida e volta ok
                 .body("code", is(200))         //tag code é 200
@@ -101,7 +101,7 @@ public class TesteUser {
 
     }//fim put
 
-   @Test //anotação
+    @Test //anotação
     public void testarExcluiirUser(){//inicio delete
         String username = "Liza";
 
@@ -124,47 +124,25 @@ public class TesteUser {
         String username = "Liza";
         String password = "987654";
 
-        Response response = (Response) given()//cast de detalhamento para o given guardar a resposta
-            .contentType(ct)
-            .log().all()
+        Response response = (Response)
+        given()//cast de detalhamento para o given guardar a resposta
+                .contentType(ct)
+                .log().all()
         .when()
-            .get(uri + "login?username=" + username + "&password= " + password)
+                .get(uri + "login?username=" + username + "&password= " + password)
         .then()
-            .log().all()
-            .statusCode(200)
-            .body("code", is(200))
-            .body("type", is("unknown"))
-            .body("message", containsString("logged in user session:"))
-            .body("message", hasLength(36)) //valida pelo numero de caracter (colections)
-        .extract()
-        ;
+                .log().all()
+                .statusCode(200)
+                .body("code", is(200))
+                .body("type", is("unknown"))
+                .body("message", containsString("logged in user session:"))
+                .body("message", hasLength(36)) //valida pelo numero de caracter (colections)
+                .extract()
+                ;
         //extração da resposta
         String token = response.jsonPath().getString("message").substring(23);//pega um pedaço do texto a partir da posição 23
         System.out.println("Conteúdo do Token: " + token);
     }//fim login
-
-   /* @ParameterizedTest //inicio csv
-    @CsvFileSource(resources = "/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
-    public void testarIncluirUserCsv(
-            String id,
-            String username,
-            String firstName,
-            String lastName,
-            String email,
-            String password,
-            String phone,
-            String userStatus){
-
-        StringBuilder jsonBody = new StringBuilder("{");
-            jsonBody.append(" 'id': "+ id + ",");
-            jsonBody.append(" 'username': " + username + ",");
-            jsonBody.append(" 'firstName': " + firstName + ",");
-            jsonBody.append(" 'lastName': " + lastName + ",");
-            jsonBody.append(" 'email': " + email + ",");
-            jsonBody.append(" 'password': " + password + ",");
-            jsonBody.append(" 'phone': " + phone + ",");
-            jsonBody.append(" 'userStatus': " + userStatus);
-            jsonBody.append("}");*/
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
@@ -209,7 +187,7 @@ public class TesteUser {
                 .statusCode(200)                     //comunicação ida e volta ok
                 .body("code", is(200))         //tag code é 200
                 .body("type", is("unknown"))   //tag type é unknown
-                /*.body("message", is( id ))*/          //message é variável id
+        /*.body("message", is( id ))*/          //message é variável id
         ;
 
     }//fim csv
