@@ -6,8 +6,10 @@ package apiTeste;
 import com.google.gson.Gson;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -19,6 +21,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 //Classe
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TesteUser {
     private static final String BASE_URI = "http://example.com/api";   //inicio da classe co letra maiuscula
     private static final String CONTENT_TYPE = "application/json";
@@ -36,6 +39,7 @@ public class TesteUser {
     //funções de teste
 
     @Test
+    @Order(1)
     public void testarIncluirUser() throws IOException {
         //carregar dados do json
         String jsonBody = lerArquivoJson("src/test/resources/json/user1.json");
@@ -58,6 +62,7 @@ public class TesteUser {
     }//fim post
 
     @Test
+    @Order(3)
     public void testarConsultarUser(){
         String username = "Liza"; //variavel username (pode ser alterado o nome)
 
@@ -80,6 +85,7 @@ public class TesteUser {
         ;
     }//fim get
     @Test
+    @Order(2)
     public void testarAlterarUser() throws IOException {
         String jsonBody = lerArquivoJson("src/test/resources/json/user2.json");
         String userId = "1373879393";
@@ -102,6 +108,7 @@ public class TesteUser {
     }//fim put
 
     @Test //anotação
+    @Order(4)
     public void testarExcluiirUser(){//inicio delete
         String username = "Liza";
 
@@ -120,6 +127,7 @@ public class TesteUser {
     }//fim delete
 
     @Test
+    @Order(5)
     public void testarLogin(){ //consulta e extrai o token
         String username = "Liza";
         String password = "987654";
@@ -145,6 +153,7 @@ public class TesteUser {
     }//fim login
 
     @ParameterizedTest
+    @Order(6)
     @CsvFileSource(files = "src/test/resources/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
 
     public void testarIncluirUserCSV(
