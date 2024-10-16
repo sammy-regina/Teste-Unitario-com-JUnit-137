@@ -146,7 +146,6 @@ public class TesteUser {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/csv/massaUser.csv", numLinesToSkip = 1, delimiter = ',')
-    @Order(5)
 
     public void testarIncluirUserCSV(
             String id,
@@ -160,14 +159,14 @@ public class TesteUser {
     {
         User user = new User();
 
-        user.setId(id);
-        user.setUsername(username);
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setPassword(password);
-        user.setPhone(phone);
-        user.setUserStatus(userStatus);
+        user.id = id;
+        user.username = username;
+        user.firstName = firstName;
+        user.lastName = lastName;
+        user.email = email;
+        user.password = password;
+        user.phone = phone;
+        user.userStatus = userStatus;
 
         Gson gson = new Gson();
         String jsonBody = gson.toJson(user);
@@ -187,7 +186,7 @@ public class TesteUser {
                 .statusCode(200)                     //comunicação ida e volta ok
                 .body("code", is(200))         //tag code é 200
                 .body("type", is("unknown"))   //tag type é unknown
-        /*.body("message", is( id ))*/          //message é variável id
+                .body("message", is( id ))           //message é variável id
         ;
 
     }//fim csv
