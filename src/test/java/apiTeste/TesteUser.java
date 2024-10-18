@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.*;
 //Classe
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TesteUser {
-    private static final String BASE_URI = "http://example.com/api";   //inicio da classe co letra maiuscula
+    private static final String BASE_URI = "http://example.com/api";   //inicio da classe com letra maiuscula
     private static final String CONTENT_TYPE = "application/json";
     //atributos
     static String ct = "application/json";
@@ -50,9 +50,9 @@ public class TesteUser {
                 .contentType(ct)                        //o tipo de conteudo
                 .log().all()                            //mostre tudo
                 .body(jsonBody)                         //corpo da requisição
-        .when()                                 //Quando
+        .when()                                         //Quando
                 .post(uri)                              //endpoint
-        .then()                                 //então
+        .then()                                         //então
                 .log().all()                            //mostre tudo na volta
                 .statusCode(200)                     //comunicação ida e volta ok
                 .body("code", is(200))         //tag code é 200
