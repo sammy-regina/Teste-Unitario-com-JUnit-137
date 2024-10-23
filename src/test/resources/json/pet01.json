@@ -1,0 +1,18 @@
+{
+  "id": 7238157961507587,
+  "category": {
+    "id": 0,
+    "name": "Eldon"
+  },
+  "name": "cachorro",
+  "photoUrls": [
+    "https://loremflickr.com/552/1782/animals?lock=7238157961507587"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "Kelley"
+    }
+  ],
+  "status": "available"
+}
