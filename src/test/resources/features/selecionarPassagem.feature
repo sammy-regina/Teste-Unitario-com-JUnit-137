@@ -12,4 +12,3 @@ Feature: Selecionar Passagem
     When seleciono a origem "São Paolo" e destino "Berlin"
     And clico em procurar voo
     Then exibe a frase indicando que o voo sera entre "São Paolo" e "Berlin"
- 2:56:41

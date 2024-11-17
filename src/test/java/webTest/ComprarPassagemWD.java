@@ -47,21 +47,21 @@ public class ComprarPassagemWD {
         driver.findElement(By.name("fromPort")).click();//selenium procurar elemento por nome"fromPort" e clique
         //selecionar a cidadeorigem na lista
         {//inicio da seleção dentro da lista
-            WebElement lista = driver.findElement(By.name("fromPort"));//criou um nome para a lista (fromPort(origem))
-            lista.findElement (By.xpath("options//[.= 'São Paolo']")).click();
+            WebElement dropdown = driver.findElement(By.name("fromPort"));
+            dropdown.findElement(By.xpath("//option[. = 'São Paolo']")).click();
         }//fim da seleção dentro do lista
 
         driver.findElement(By.name("toPort")).click();//selenium procurar elemento por nome"fromPort" e clique
         //selecionar a cidade destino na lista
         {//inicio da seleção dentro da lista
-            WebElement lista = driver.findElement(By.name("toPort"));//toPort (destino)
-            lista.findElement(By.xpath("options//[.= 'Berlin']")).click();
+            WebElement dropdown = driver.findElement(By.name("toPort"));
+            dropdown.findElement(By.xpath("//option[. = 'Berlin']")).click();
         }//fim da seleção dentro do lista
 
         //aperat o botão find flights
         driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
 
         //validar a frase que indica que o voo é de são paolo para berlim
-        assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Flights from São Paolo to Berlin:"));
+        assertEquals("Flights from São Paolo to Berlin:", driver.findElement(By.cssSelector("h3")).getText());
     }// fim comprar passagem wd
 }

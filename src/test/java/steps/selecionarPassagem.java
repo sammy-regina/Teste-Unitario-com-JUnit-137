@@ -24,7 +24,7 @@ public class selecionarPassagem {
 
     @Before //inicio
     public void setup(){
-        WebDriverManager.chromedriver();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");//aceitar qualquer origem remota
         driver = new ChromeDriver(options);
@@ -32,7 +32,7 @@ public class selecionarPassagem {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(60000));
     }
     @After //fim
-    public void tearDown (){
+    public void tearDown(){
         driver.quit();
     }
 
