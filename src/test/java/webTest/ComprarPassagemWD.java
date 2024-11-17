@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //Classes
@@ -46,7 +48,7 @@ public class ComprarPassagemWD {
         //selecionar a cidadeorigem na lista
         {//inicio da seleção dentro da lista
             WebElement lista = driver.findElement(By.name("fromPort"));//criou um nome para a lista (fromPort(origem))
-            lista.findElement(By.xpath("options//[.= 'São Paolo']")).click();
+            lista.findElement (By.xpath("options//[.= 'São Paolo']")).click();
         }//fim da seleção dentro do lista
 
         driver.findElement(By.name("toPort")).click();//selenium procurar elemento por nome"fromPort" e clique
@@ -60,6 +62,6 @@ public class ComprarPassagemWD {
         driver.findElement(By.cssSelector("input.btn.btn-primary")).click();
 
         //validar a frase que indica que o voo é de são paolo para berlim
-        assertEquals("Flights from São Paolo to Berlin:",driver.findElement(By.cssSelector("h3")).getText());
+        assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Flights from São Paolo to Berlin:"));
     }// fim comprar passagem wd
 }
