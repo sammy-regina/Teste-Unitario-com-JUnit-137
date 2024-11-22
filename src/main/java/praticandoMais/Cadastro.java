@@ -13,7 +13,7 @@ public class Cadastro {
         System.out.println("Digite seu sobrenome: ");
         String sobrenome = scanner.nextLine();
 
-        String cadastrado = nome + sobrenome;
+        String cadastrado = nome + " " + sobrenome;
 
         String cadastrado1 = cadastrado.toUpperCase();
 
