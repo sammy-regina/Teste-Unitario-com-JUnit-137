@@ -25,4 +25,4 @@ public class HomePage extends Base{//definir a classe base e colocar o extends
     public void clicarBtnProcurarVoo(){
         this.driver.findElement(byBtnFindFlights).click();
     }
-}1:29:41
+}
